@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jQ06</title>
+        <style>
+            div{
+                position:relative;
+                width:300px;
+                height:200px;
+                border: 1px solid black;
+                background-color: red;
+            }
+        </style>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+         <script>
+            $().ready(function(e){
+                $('#btnMoveRight').click(function(){
+                    var left=$(window).width()-$("div").innerWidth();
+                    $('div').animate({
+                        'left':left
+                    },1000);
+                });
+                $('#btnMoveLeft').click(function(){
+                    $('div').animate({
+                        'left':'0'
+                    },1000);
+                });
+                $('#btnMoveUp').click(function(){
+                    $('div').animate({
+                        'top':'0'
+                    },1000);
+                });
+                $('#btnMoveDown').click(function(){
+                    var top=$(window).height()-$("div").innerHeight();
+                    $('div').animate({
+                        'top':top
+                    },1000);
+                });
+            });
+         </script>
+    </head>
+    <body>
+        <div></div>
+        <input type="button" id="btnMoveRight" value="Move Right">
+        <input type="button" id="btnMoveLeft" value="Move Left">
+        <input type="button" id="btnMoveUp" value="Move Up">
+        <input type="button" id="btnMoveDown" value="Move Down">
+    </body>
+</html>

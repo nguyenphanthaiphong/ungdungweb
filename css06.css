@@ -1,0 +1,52 @@
+@charset "utf-8";
+.title{
+    text-align: center;
+    font-size: 4em;
+    font-weight: 700; 
+    color: blue;
+    text-shadow: 6px 6px 2px gray ;
+}
+.menu{
+    height: 50px;
+    background-color: rgb(255, 127, 127);
+    line-height: 50px;
+}
+a:link{
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    margin-right: 10px;
+}
+a:hover{
+    color: yellow;
+    font-size: 1.5em;
+}
+#hinh{
+    float: right;
+}
+p{
+    text-align: justify;
+}
+.bnt{
+    background-color: rgb(0, 140, 255);
+    width: 120px; height: 30px;
+    border-radius: 20px;
+}
+.bnt:hover{
+    background-color: yellow;
+    color: red;
+}
+p{
+    text-align: justify;
+}
+.btn{
+    background-color: yellow  ;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px 20px;
+}
+.btn:hover{
+    background-color: rgb(27, 2, 2);
+    color: yellowgreen;
+}

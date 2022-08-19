@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS07</title>
+    <script>
+        var arr;
+        var input;
+
+        function SaveS1() {
+            input = document.getElementById("str1").value;
+        }
+
+        function Print(s) {
+            document.getElementById("str1").value = s;
+        }
+
+        function Reset() {
+            Print(input);
+        }
+
+        function Normalize() {
+            arr = input.split(" ");
+            console.log(arr);
+
+            var kq = "";
+            var temp = "";
+
+            for (var i = 0; i < arr.length; i++) {
+                temp = arr[i].toLowerCase();
+                if (temp != "") {
+                    temp = temp.substr(0, 1).toUpperCase() + temp.substr(1, temp.length - 1);
+                    console.log(temp);
+                    kq += temp + " ";
+                }
+                else
+                    continue;
+            }
+            Print(kq);
+        }
+
+        function ReplaceS2ToS3() {
+            var S2 = document.getElementById("str2").value.trim();
+            var S3 = document.getElementById("str3").value.trim();
+
+            var newArray = input.split(" ");
+            var result = "";
+
+            for (let index = 0; index < newArray.length; index++) {
+                if (newArray[index].toLowerCase() == S2.trim().toLowerCase()) {
+                    newArray[index] = S3;
+                }
+
+                result += newArray[index] + " ";
+            }
+
+            Print(result);
+        }
+
+        function InsertS2ToS1() {
+            var position = parseInt(document.getElementById("position").value);
+            var S2 = document.getElementById("str2").value.trim();
+
+            var currentS1 = document.getElementById("str1").value;
+            console.log(currentS1);
+
+            currentS1 = currentS1.slice(0, position) + S2 + currentS1.slice(position);
+            // ABS2CDE
+            Print(currentS1);
+        }
+
+        function DeleteS2FromS1() {
+            var S2 = document.getElementById("str2").value.trim();
+
+            var currentS1 = document.getElementById("str1").value;
+            console.log(currentS1);
+            var indexOfWordToDelete = currentS1.indexOf(S2);
+
+            currentS1 = currentS1.slice(0, indexOfWordToDelete) + currentS1.slice(indexOfWordToDelete + S2.length);
+            // ABS2CDE
+            // AB indexof S2.length CDE
+            // AB indexof S2.length ||| CDE indexOfWordToDelete + S2.length
+            Print(currentS1);
+        }
+        function resver() {
+            arr = input.split(" ");
+            console.log(arr);
+
+            var kq = "";
+            var temp = "";
+            for (var i = arr.length - 1; i >= 0; i--) {
+                kq += arr[i].trim() + " ";
+            }
+            Print(kq);
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Chương trình xử lý chuỗi</h1>
+    <form>
+        <label>Chuỗi S1 : </label>
+        <input type="text" placeholder="Enter your string 1 " id="str1" onchange="SaveS1()" />
+        <br>
+        <br>
+        <label>Chuỗi S2 : </label>
+        <input type="text" placeholder="Enter your string 2 " id="str2" />
+        <br>
+        <br>
+        <label>Chuỗi S3 : </label>
+        <input type="text" placeholder="Enter your string 3 " id="str3" />
+        <br>
+        <br>
+        <label>Vị trí chèn </label>
+        <input type="number" placeholder="position add " id="position" />
+        <br><br>
+        <input type="button" value="Chuẩn hoá chuỗi" onclick="Normalize()" />
+        <input type="button" value="Đảo chuỗi" onclick="resver()" />
+        <input type="button" value="Khôi Phục" onclick="Reset()" />
+        <br><br>
+        <input type="button" value="Thay Thế chuối S2 bằng S3" onclick="ReplaceS2ToS3()" />
+        <input type="button" value="Chèn chuối S2 vào S1" onclick="InsertS2ToS1()" />
+        <input type="button" value="Xoá S2 trong S1" onclick="DeleteS2FromS1()" />
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS02</title>
+    <script>
+        var Thang = prompt("Nhập tháng");
+        var Nam = prompt("Nhập năm", 2000);
+        let greeting;
+        if(Nam > 0 && (Thang >= 1 && Thang <= 12)) {
+            if(Thang == 1 || Thang == 3 || Thang == 7 || Thang == 8 || Thang == 10 || Thang == 12) {
+                greeting = "31 ngày";
+            }
+            else if(Thang == 4 || Thang == 6 || Thang == 9 || Thang == 11) {
+                greeting = "30 ngày";
+            }
+            else
+            {
+                if(Nam % 400 === 0 || Nam % 4 === 0 && Nam % 100 != 0) {
+                    greeting = "29 ngày";
+                }
+                else {
+                    greeting = "28 ngày";
+                }
+            }
+            document.write("Tháng " + Thang + " năm " + Nam + " có " + greeting + "<br>");
+        }
+        else {
+            alert("Lỗi!");
+        }
+    </script>
+</head>
+<body>
+    <div id="datehour"></div>
+    <button onclick="NgayGio()">Xem ngày giờ</button>
+    <script>
+        var today = new Date();
+        var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var day = today.getDay();
+        if(day == 0) {
+            var rank = "Chủ nhật";
+        }
+        else {
+            for(var i = 1; i <= 6; i++) {
+                if(day == i) {
+                    var rank =(i + 1);
+                }
+            }
+        }
+        var DTD = "Hôm nay, thứ " + rank + " ngày " + date + "<br>" + time;
+        function NgayGio() {
+            document.getElementById("datehour").innerHTML = DTD;
+        }
+    </script>
+</body>
+</html>

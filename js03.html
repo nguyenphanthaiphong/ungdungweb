@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS03</title>
+    <style>
+        .main {
+            font-size: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        table { 
+            border-collapse: collapse;
+            background-color: #FFFFCC;
+            margin: auto;
+            width: 30%;
+        }
+        table, td {
+            border: 1px solid; 
+            padding: 5px 5px;
+        }
+        label {
+            font-size: 20px;
+            padding-right: 50px;
+        }
+        #kq {
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div>CHƯƠNG TRÌNH GIẢI PHƯƠNG TRÌNH BẬC 2</div>
+        <div>ax<sup>2</sup> + bx + c = 0</div>
+    </div>
+    <form action="" method="post">
+        <table>
+            <tbody>
+                <tr>
+                    <td><label>a = </label></td>
+                    <td><input type="number" id="a" tabindex="1" required></td>
+                </tr>
+                <tr>
+                    <td><label>b = </label></td>
+                    <td><input type="number" id="b" tabindex="2" required></td>
+                </tr>
+                <tr>
+                    <td><label>c = </label></td>
+                    <td><input type="number" id="c" tabindex="3" required></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="button" onclick="Giai()">Giải</button>
+                        <button type="reset">Xoá</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+    <div id="kq"></div>
+    <script>
+        function Giai() {
+        var a = document.getElementById("a").value;
+        var b = document.getElementById("b").value;
+        var c = document.getElementById("c").value;
+        a = parseFloat(a);
+        b = parseFloat(b);
+        c = parseFloat(c);
+        var deta = b*b - 4*a*c;
+        if(a==0)
+            {
+                if(b==0)
+                {
+                    if(c==0)
+                    {
+                        document.getElementById("kq").innerHTML="Phương trình vô số nghiệm";
+                    }
+                    else
+                    {
+                        document.getElementById("kq").innerHTML="Phương trình vô nghiệm";
+                    }
+
+                }
+                else
+                {
+                    var d = -c/b;
+                    document.getElementById("kq").innerHTML="Phương trình có nghệm duy nhất x = " + d;
+                }
+            }
+            else {
+                if(deta > 0) {
+                    var x1 = (-b + Math.sqrt(deta))/2*a;
+                    var x2 = (-b - Math.sqrt(deta))/2*a;
+                    document.getElementById("kq").innerHTML = "Phương trình có hai nghiệm là:" + "<br>" + "x1 = " + x1 + "<br>" + "x2 = " + x2;
+                }
+                else if(deta == 0) {
+                    var x = -b/2*a;
+                    document.getElementById("kq").innerHTML = "Phương trình có nghiệm kép là:" + "<br>" + "x1 = x2 = " + x;
+                }
+                else {
+                    document.getElementById("kq").innerHTML = "Phương trình vô nghiệm!";
+                }
+            }
+        }
+    </script>
+</body>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS04</title>
+    <style>
+        table thead th {
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 30px;
+            padding-right: 100px;
+            padding-bottom: 10px;
+            padding-left: 100px;
+        }
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        <table border="1">
+            <thead>
+                <tr><th colspan="2">Các phép tính số học</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><label>Số thứ 1</label></td>
+                    <td><input type="number" id="a" required></td>
+                </tr>
+                <tr>
+                    <td><label>Số thứ 2</label></td>
+                    <td><input type="number" id="b" required></td>
+                </tr>
+                <tr>
+                    <td>Chọn phép toán</td>
+                    <td><form>
+                        <input type="radio" name="số" value="0">Cộng<br>
+                        <input type="radio" name="số" value="1">Trừ<br>
+                        <input type="radio" name="số" value="2">Nhân<br>
+                        <input type="radio" name="số" value="3">Chia
+                    </form></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><button type="button" onclick="Pheptinh()">Thực hiện</button></td>
+                    <td><input type="text" id="in" laceholder="Kết quả" readonly></td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+    <script>
+        function Print(xuat) {
+            document.getElementById("in").value = xuat;
+        }
+        function Pheptinh() {
+            var num1 = parseFloat(document.getElementById("a").value);
+            var num2 = parseFloat(document.getElementById("b").value);
+            var number = '';
+            var options = document.getElementsByName("số"); // index start = 0
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].checked) { // kiem tra cai nao dc check
+                    number = options[i].value;
+                    break;
+                }
+                else
+                    continue;
+            }
+            switch(number) {
+                case '0':
+                    Print(num1 + num2);
+                    break;
+                case '1':
+                    Print(num1 - num2);
+                    break;
+                case '2':
+                    Print(num1 * num2);
+                    break;
+                case '3':
+                    if(num2 == 0)
+                        alert("Báo lỗi");
+                    else
+                        Print(num1 / num2);
+                    break;
+                default:
+                    alert("Chọn lại!");
+            }
+        }
+    </script>
+</body>
+</html>

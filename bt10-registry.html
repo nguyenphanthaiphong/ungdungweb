@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div align="center" >
+        <h1>BÀI KIỂM TRA CHƯƠNG 2</h1><br>
+        <p><b>Môn học: </b><i>Ứng dụng web </i> </p>
+        <p><b>Mã số sinh viên: </b><i>12355</i></p>
+        <p><b>Họ và tên: </b><i>Nguyễn Văn A</i> </p>
+    </div>
+    <hr>
+    <div align="center">
+        <a href="bt10-index.html">Trang chủ </a>
+        <a href="bt10-content.html">Nội dung môn học</a>
+        <a href="bt10-registry.html">Đăng ký </a>
+    </div>
+    <h1 align="center">ĐĂNG KÍ THAM GIA DIỄN ĐÀN </h1>
+    <form action="">
+        <table align="center" bgcolor="yellow" border="1">
+            <caption align="top"><h3><b>ĐĂNG KÝ THAM GIA DIỄN ĐÀN</b></h3></caption>
+            <tr>
+                <td><label for="username">Tên đăng nhập </label></td>
+                <td><input name="txtname" type="text" id="txten" required></td>
+            </tr>
+            <tr>
+                <td>Mật khẩu: </td>
+                <td><input name="txtpass" type="password" id="txtpass" required></td> 
+            </tr>
+            <tr>
+                <td>Giới tính: </td>
+                <td>
+                    <input type="radio" name="txtsex" value="Nam" checked > Nam
+                <input type="radio" name="txtsex" value="Nữ"> Nữ 
+                </td>
+            </tr>
+            <tr>
+                <td>Ngày sinh: </td>
+                <td><input type="date" name="txtday"></td> 
+            </tr>
+            <tr>
+                <td>Email: </td>
+                <td> <input type="email" name="txtemail" value=""></td>
+            </tr>
+            <tr>
+                <td> Ngôn ngữ lập trình yêu thích nhất </td>
+                <td><select action="" mothod="post">
+                    <option value="C++">C++</option>
+                    <option value="C#">C#</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Java">Java</option>
+                    <option value="Python">Python</option>
+                </select></td>
+            </tr>
+            <tr rowspam="3">
+                <td>Quy định khi tham gia diễn đàn: </td>
+                <td><textarea name="txtinfo" rows="5" cols="30" ></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Đăng ký </button>
+                    <button type="reset">Hủy </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    </body>
+</html>

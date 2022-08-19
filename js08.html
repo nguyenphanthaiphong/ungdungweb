@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS08</title>
+    <script>
+        function Statistic() {
+            var s = document.getElementById("txtS").value;
+            var arr = s.split(" ");
+            var words = 0;
+            var arrkq = []; //mảnh chứa kết quả thống kê
+            for(var i = 0; i <= 128; i++) {
+                arrkq[i] = 0;//khởi tạo tất cả các phần tử đều = 0
+            }
+            for(var i = 0; i < arr.length; i++)  //đếm số từ trong chuỗi
+                if(arr[i].trim() != "") 
+                    words++;
+            // bắt đầu thống kê kí tự
+            var kq ="Charaters: " + s.length + "<br>" +
+                "Words: " + words + "<br>";
+            for(var i = 0; i < s.length; i++) {
+                if(s.charCodeAt(i) >= 'a' && s.charCodeAt(i) <= 'z') { //kí tự a-z
+                    arrkq[s.charCodeAt(i) - 32]++;//chuyển sang kí tự chữ hoa
+                }
+                else//các kí tự khác
+                    arrkq[s.charCodeAt(i)]++;
+            }
+            console.log(arrkq.toString());
+            //duyệt mảng thống kê
+            for(var i = 0; i < arrkq.length; i++)
+            {
+                if(arrkq[i] > 0)
+                    kq += "Character '" +String.fromCharCode(i) + "': " + arrkq[i] + "<br>";   
+            }
+            document.getElementById("kq").innerHTML = kq;
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <caption><h3>String statistic</h3></caption>
+        <tr>
+            <td>String:</td>
+            <td><input type="text" id="txtS" size="50"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button onclick="Statistic()">Statistic</button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><p id="kq"></p></td>
+        </tr>
+    </table>
+</body>
+</html>

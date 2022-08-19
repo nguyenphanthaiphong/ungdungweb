@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS01</title>
+</head>
+<body>
+    <h1>CHƯƠNG TRÌNH TÍNH TUỔI</h1>
+    <table border="1">
+        <form action="" method="post">
+            <tbody>
+                <tr>
+                    <td>Nhập vào tên bạn:</td>
+                    <td><input type="text" id="tên" tabindex="1"></td>
+                </tr>
+                <tr>
+                    <td>Nhập vào năm sinh:</td>
+                    <td><input type="number" id="năm" tabindex="2"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <p><button onclick="Tinhtuoi()">Tính tuổi</button></p>
+    <div id="N"></div>
+    <div id="A"></div>
+    <script>
+        function Tinhtuoi() {
+            var Birthday = document.getElementById("năm").value;
+            var age = new Date().getFullYear() - Birthday;
+            var name = document.getElementById("tên").value;
+            document.getElementById("N").innerHTML = "Chào bạn " + name + "!";
+            document.getElementById("A").innerHTML = "Tuổi của bạn là :" + age;
+            if(name =="") {
+                alert("Tên chưa nhập");
+                false;
+            }
+        }
+    </script>
+</body>
+</html>

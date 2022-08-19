@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS06</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        table {
+            margin: auto;
+        }
+    </style>
+    <script>
+        function DKTV() {
+        var tên = document.getElementById("name").value;
+        var mk = document.getElementById("password").value;
+        var Ngaysinh = new Date(document.getElementById("birthday").value);
+        var Tuổi = new Date().getFullYear() - Ngaysinh.getFullYear();
+        var Gioitinh = document.getElementsByName("sex");
+        var Vande = document.getElementById("content").value;
+        var outGT = '';
+            for(var i = 0; i < Gioitinh.length; i++) {
+                if(Gioitinh[i].checked) {
+                    outGT = Gioitinh[i].value;
+                    break;
+                }
+                else
+                    continue;
+            }
+            if(outGT == '0') { 
+                Gioitinh = "Nam"; 
+            }
+            else if(outGT == '1') { 
+                Gioitinh = "Nữ"; 
+            }
+            if(Gioitinh == "Nam" || Gioitinh == "Nữ") {
+                var out = 
+                "Chào mừng " + tên + "\n" +
+                "Bạn là " + Gioitinh + "\n" +
+                "Mật khẩu của bạn có " + mk.length + " ký tự" + "\n" +
+                "Tuổi của bạn là " + Tuổi + "\n" + 
+                "Vấn đề bạn quan tâm là " + Vande;
+                document.getElementById("kq").innerHTML = out;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>ĐĂNG KÝ THÀNH VIÊN</h1>
+    <form>
+        <table border="1">
+            <tbody>
+                <tr>
+                    <td>Tên đăng nhập</td>
+                    <td><input type="text" id="name" tabindex="1" required></td>
+                </tr>
+                <tr>
+                    <td>Mật khẩu</td>
+                    <td><input type="password" id="password" tabindex="2"></td>
+                </tr>
+                <tr>
+                    <td>Ngày sinh</td>
+                    <td><input type="date" id="birthday" tabindex="3"></td>
+                </tr>
+                <tr>
+                    <td>Giới tính</td>
+                    <td>
+                        <input type="radio" name="sex" value="0" checked>Nam
+                        <input type="radio" name="sex" value="1">Nữ
+                    </td>
+                </tr>
+                <tr>
+                    <td>Vấn đề bạn quan tâm</td>
+                    <td>
+                        <select id="content">
+                            <option value="Kinh tế" selected="selected">Kinh tế</option>
+                            <option value="Thể thao">Thể thao</option>
+                            <option value="Văn hoá nghệ thuật">Văn hoá nghệ thuật</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="DKTV()">Đăng ký</button></td>
+                    <td><button type="reset">Huỷ</button></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2"><textarea rows="15" cols="60" id="kq" readonly></textarea></td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+</body>
+</html>
